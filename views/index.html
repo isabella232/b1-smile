@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script> -->
+  <!-- <script src="../node_modules/base64-arraybuffer/lib/base64-arraybuffer.js"></script> -->
+  <meta charset="UTF-8" />
+  <title>Smile!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+
+    h1 {
+      color: white;
+    }
+
+    #player {
+      /*Mirror code starts*/
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      /* Safari and Chrome */
+      -moz-transform: rotateY(180deg);
+      /* Firefox */
+      /*Mirror code ends*/
+    }
+
+    /* START Block for dialog box */
+    label,
+    input {
+      display: block;
+    }
+
+    input.text {
+      margin-bottom: 12px;
+      width: 95%;
+      padding: .4em;
+    }
+
+    fieldset {
+      padding: 0;
+      border: 0;
+      margin-top: 25px;
+    }
+
+    div#users-contain {
+      width: 350px;
+      margin: 20px 0;
+    }
+
+    div#users-contain table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    div#users-contain table td,
+    div#users-contain table th {
+      border: 1px solid #eee;
+      padding: .6em 10px;
+      text-align: left;
+    }
+
+    .ui-dialog .ui-state-error {
+      padding: .3em;
+    }
+
+    .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+      float: none;
+    }
+
+    .ui-dialog .ui-dialog-buttonpane {
+      text-align: center;
+      font-size: 200% !important;
+    }
+
+    .ui-dialog>.ui-widget-header {
+      font-size: 200% !important;
+      color: #FFFFFF !important;
+      background: #2F6497;
+    }
+
+    .ui-dialog-titlebar-close {
+      visibility: hidden;
+    }
+
+    .validateTips {
+      border: 10px solid transparent;
+      padding: 0.3em;
+    }
+
+    /* END Block for dialog box */
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="/static/javascript/smile.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.16.0.min.js"></script>
+</head>
+
+<body style="text-align:center; background-color:black">
+  <div id="dialog-form" title="Feedback" style="text-align:left; ">
+    <p class="validateTips">Besides the rating, is there any comment you want to share? (optional)</p>
+    <form>
+      <fieldset>
+        <label for="name"></label>
+        <textarea name="textFeedback" cols="24" rows="3"></textarea>
+      </fieldset>
+    </form>
+  </div>
+  <div id="dialog-form2" title="Face Analysis Result" style="text-align:center; font:bold 36px Helvetica;">
+    <p id="faceresulttext" class="validateTips"></p>
+    <form>
+      <fieldset>
+        <!-- <label for="name" style="text-align:left; font:bold 20px Helvetica;">Plese, feel free to share any additional comment:</label> -->
+        <textarea name="textFeedback2" cols="20" rows="3"></textarea>
+      </fieldset>
+    </form>
+  </div>
+
+  <p id="opResult"></p>
+  <center>
+    <div {display:block; box-sizing:border-box; clear:both} style="text-align:center; width: 100%; max-width: 1000px;">
+      <table width=100% max-height=auto>
+        <tr>
+          <td style="text-align:left; background-color:#2F6497; font:bold 36px Helvetica; color:white">
+            <img src="../static/resources/sap_logo_big.png" width="10%" style="vertical-align:middle;"></img> Smile! :-)
+          </td>
+        </tr>
+        <tr>
+          <td {display:block; box-sizing:border-box; clear:both} style="text-align:center">
+            <video width=100% id="player" autoplay loop muted playsinline onloadeddata="this.play();"></video>
+          </td>
+        </tr>
+        <tr>
+          <td {display:block; box-sizing:border-box; clear:both} style="text-align:center">
+            <a id="piclink"><canvas id="snapshot" width="100%"></canvas></a>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align:center; background-color:#2F6497;">
+            <div>
+              <img src="../static/resources/take_pic.png" id="capture" style="vertical-align:middle;"></img>
+              <img src="../static/resources/save_rating.png" id="confirm" hidden="true"
+                style="vertical-align:middle;"></img>
+              <!--hidden="true" -->
+              <!--hidden="true"-->
+              <input type="hidden" value="sessionId" readonly id="sessId" visible="false" />
+            </div>
+          </td>
+        </tr>
+        <!-- <tr>
+      <td>
+        <textarea name="textFeedback" cols="40" rows="5"></textarea> -->
+        <!-- </td>
+    </tr>
+    <tr>
+      <td> -->
+        <!-- <div class="cssbutton glass a">
+          <input type="submit" value="Save Rating!" id="confirm" />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <input type="hidden" value="sessionId" readonly id="sessId" visible="false" />
+        </div>
+      </td>
+    </tr> -->
+        <!-- <tr>
+      <td>
+        <div data-sap-ui-type="sap.m.Button" data-press="doSomething" data-text="Hello World"></div>
+      </td>
+    </tr> -->
+      </table>
+    </div>
+  </center>
+</body>
+
+</html>
