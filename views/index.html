@@ -3,8 +3,6 @@
 
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script> -->
-  <!-- <script src="../node_modules/base64-arraybuffer/lib/base64-arraybuffer.js"></script> -->
   <meta charset="UTF-8" />
   <title>Smile!</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
@@ -95,25 +93,15 @@
   </style>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="/static/javascript/smile.js"></script>
   <script src="https://sdk.amazonaws.com/js/aws-sdk-2.16.0.min.js"></script>
+  <script src="/static/javascript/smile.js"></script>
 </head>
 
 <body style="text-align:center; background-color:black">
-  <div id="dialog-form" title="Feedback" style="text-align:left; ">
-    <p class="validateTips">Besides the rating, is there any comment you want to share? (optional)</p>
-    <form>
-      <fieldset>
-        <label for="name"></label>
-        <textarea name="textFeedback" cols="24" rows="3"></textarea>
-      </fieldset>
-    </form>
-  </div>
   <div id="dialog-form2" title="Face Analysis Result" style="text-align:center; font:bold 36px Helvetica;">
     <p id="faceresulttext" class="validateTips"></p>
     <form>
       <fieldset>
-        <!-- <label for="name" style="text-align:left; font:bold 20px Helvetica;">Plese, feel free to share any additional comment:</label> -->
         <textarea name="textFeedback2" cols="20" rows="3"></textarea>
       </fieldset>
     </form>
@@ -150,30 +138,6 @@
             </div>
           </td>
         </tr>
-        <!-- <tr>
-      <td>
-        <textarea name="textFeedback" cols="40" rows="5"></textarea> -->
-        <!-- </td>
-    </tr>
-    <tr>
-      <td> -->
-        <!-- <div class="cssbutton glass a">
-          <input type="submit" value="Save Rating!" id="confirm" />
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div>
-          <input type="hidden" value="sessionId" readonly id="sessId" visible="false" />
-        </div>
-      </td>
-    </tr> -->
-        <!-- <tr>
-      <td>
-        <div data-sap-ui-type="sap.m.Button" data-press="doSomething" data-text="Hello World"></div>
-      </td>
-    </tr> -->
       </table>
     </div>
   </center>

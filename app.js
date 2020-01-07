@@ -121,6 +121,20 @@ app.post("/mergeImages", function(req, res) {
   });
 });
 
+//End-point to merge two images (input is the selfie in base64, output is merged picture in buffer format)
+app.post("/mergeImagesAndUpload", function(req, res) {
+  LOVELLSHARP.MergeImagesAndUpload(req.body, function(error, resp1, resp2) {
+    if (error) {
+      console.error("Error - " + error);
+      res.send(error);
+    } else {
+      var jsonResponse = JSON.stringify({ imageBuffer: resp1, imageUrl: resp2 });
+      res.setHeader("Content-Type", "application/json");
+      res.status(200).send(jsonResponse);
+    }
+  });
+});
+
 var port = process.env.PORT || 30000;
 app.listen(port, function() {
   console.log("Smile Rekognition listening on port " + port);

@@ -29,34 +29,72 @@ module.exports = {
   }
 };
 
+AWS.config.update({
+  accessKeyId: ACCESS_KEY,
+  secretAccessKey: SECRET_KEY,
+  region: REGION
+});
+
+var s3 = new AWS.S3();
+
 function uuidv4() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+    var r = (Math.random() * 16) | 0,
+      v = c == "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
-};
+}
 
-function UploadImage(userImage, callback) {
-  AWS.config.update({
-    accessKeyId: ACCESS_KEY,
-    secretAccessKey: SECRET_KEY,
-    region: REGION
+function DeleteImage(imageToDelete, callback) {
+  var params = { Bucket: BUCKET, Key: imageToDelete };
+
+  s3.deleteObject(params, function(err, data) {
+    if (!err) console.log("Image deleted from S3: " + data);
+    else console.log(err, err.stack);
+    response = data;
+    callback(null, response);
   });
+}
 
-  var s3 = new AWS.S3();
-  buf = new Buffer(userImage, "base64");
-  console.log("Merging pictures using SHARP: selfie with SMB Summits frame");
+function UploadImageBuffer(buf, callback) {
+  console.log("Creating buffer from base64...");
+  newBuffer = new Buffer.from(buf);
 
-  console.log("Uploading selfie with frame to S3");
-
-  // var imageRemoteName = `selfie_${new Date().getTime()}.png`;
-  // console.log("Picture NAME WITH TIMESTAMP: " + imageRemoteName);
-
-  var imageRemoteName = uuidv4() + '.png';
+  var imageRemoteName = uuidv4() + ".png";
   console.log("Picture NAME WITH GUID: " + imageRemoteName);
 
+  console.log("Uploading selfie merged with image-from-path to S3");
+  timeNow = Date.now();
+  s3.putObject({
+    Bucket: BUCKET,
+    Body: newBuffer,
+    Key: imageRemoteName,
+    ACL: "public-read",
+    ContentType: "image/png"
+  })
+    .promise()
+    .then(response => {
+      console.log("Total time to upload (ms): " + (Date.now() - timeNow));
+      response = `${s3.getSignedUrl("getObject", {
+        Bucket: BUCKET,
+        Key: imageRemoteName
+      })}`;
+      console.log("Finished Uploading file - The URL is: " + response);
+      callback(null, response);
+    })
+    .catch(err => {
+      console.log("failed:", err);
+    });
+}
 
+function UploadImage(userImage, callback) {
+  console.log("Creating buffer from base64...");
+  buf = new Buffer(userImage, "base64");
 
+  var imageRemoteName = uuidv4() + ".png";
+  console.log("Picture NAME WITH GUID: " + imageRemoteName);
+
+  console.log("Uploading selfie with frame to S3");
   s3.putObject({
     Bucket: BUCKET,
     Body: buf,
@@ -78,63 +116,6 @@ function UploadImage(userImage, callback) {
         Bucket: BUCKET,
         Key: imageRemoteName
       })}`;
-      callback(null, response);
-    })
-    .catch(err => {
-      console.log("failed:", err);
-    });
-}
-
-function DeleteImage(imageToDelete, callback) {
-  AWS.config.update({
-    accessKeyId: ACCESS_KEY,
-    secretAccessKey: SECRET_KEY,
-    region: REGION
-  });
-
-  var s3 = new AWS.S3();
-  var params = { Bucket: BUCKET, Key: imageToDelete };
-
-  s3.deleteObject(params, function(err, data) {
-    if (!err) console.log("Image deleted from S3: " + data);
-    else console.log(err, err.stack);
-    response = data;
-    callback(null, response);
-  });
-}
-
-function UploadImageBuffer(buf, callback) {
-  newBuffer = new Buffer.from(buf);
-  AWS.config.update({
-    accessKeyId: ACCESS_KEY,
-    secretAccessKey: SECRET_KEY,
-    region: REGION
-  });
-
-  var s3 = new AWS.S3();
-
-  console.log("Uploading selfie merged with image-from-path to S3");
-  
-  // var imageRemoteName = `selfie_${new Date().getTime()}.png`;
-  // console.log("Picture NAME WITH TIMESTAMP: " + imageRemoteName);
-
-  var imageRemoteName = uuidv4() + '.png';
-  console.log("Picture NAME WITH GUID: " + imageRemoteName);
-
-  s3.putObject({
-    Bucket: BUCKET,
-    Body: newBuffer,
-    Key: imageRemoteName,
-    ACL: "public-read",
-    ContentType: "image/png"
-  })
-    .promise()
-    .then(response => {
-      response = `${s3.getSignedUrl("getObject", {
-        Bucket: BUCKET,
-        Key: imageRemoteName
-      })}`;
-      console.log("Done - The URL is: " + response);
       callback(null, response);
     })
     .catch(err => {
