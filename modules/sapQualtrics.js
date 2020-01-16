@@ -42,18 +42,18 @@ function FillSurvey(surveyData, callback) {
       locationLongitude: "8.6442",
       distributionChannel: "anonymous",
       userLanguage: "EN",
-      SessID_CEDsfzz517: surveyData.sessionID,
+      SessID_CED6t672nk: surveyData.sessionID,
       QID1: surveyData.question1,
       QID2_TEXT: surveyData.question2,
-      Age_CEDb5o16yv: [String(surveyData.age)],
-      Gender_CEDe6y27pr: [surveyData.gender],
-      Eyegla_CEDaw1xl6v: [surveyData.eyeglasses],
-      EyesOp_CEDydss6ci: [surveyData.eyesOpen],
-      MouthO_CED416bken: [surveyData.mouthOpen],
-      Mustac_CEDaihnqnh: [surveyData.mustache],
-      Smile_CEDparq0sd: [surveyData.smile],
-      Sungla_CED096o3r3: [surveyData.sunglasses],
-      Beard_CEDe86dpz9: [surveyData.beard]
+      Age_CEDe4s6hq7: [String(surveyData.age)],
+      Gender_CEDjhthsdn: [surveyData.gender],
+      Eyegla_CED0k3z2q8: [surveyData.eyeglasses],
+      EyesOp_CEDxwjpth4: [surveyData.eyesOpen],
+      MouthO_CEDjyxmrnw: [surveyData.mouthOpen],
+      Mustac_CED359e9s4: [surveyData.mustache],
+      Smile_CEDo6lw72w: [surveyData.smile],
+      Sungla_CED208nwbb: [surveyData.sunglasses],
+      Beard_CEDgucai3u: [surveyData.beard]
     }
   };
 
