@@ -16,11 +16,14 @@ window.addEventListener("load", function() {
   var takeSelfieEnabled = true;
   var context = snapshot.getContext("2d");
   var finalRating = 0;
-  var cfserver = "http://localhost:30000";
+  var cfserver = location.protocol + '//' + location.host;
+  // console.log("Variable: " + cfserver);
+  // console.log("Location Host: " + location.protocol + '//' + location.host);
   // var cfserver =  "https://smiletcm-happy-buffalo.cfapps.eu10.hana.ondemand.com";
   // var cfserver =  "https://smiletcm-grumpy-toucan.cfapps.eu10.hana.ondemand.com";
 
   var sessionID = document.getElementById("sessId").value;
+  var emotion;
 
   // Dialog for the survey
   dialog2 = $("#dialog-form2").dialog({
@@ -138,7 +141,8 @@ window.addEventListener("load", function() {
       mouthOpen: String(faceAnalysis.MouthOpen.Value),
       mustache: String(faceAnalysis.Mustache.Value),
       smile: String(faceAnalysis.Smile.Value),
-      sunglasses: String(faceAnalysis.Sunglasses.Value)
+      sunglasses: String(faceAnalysis.Sunglasses.Value),
+      emotion: String(emotion)
     };
 
     //Call server-side API to process qualtrics survey
@@ -148,10 +152,10 @@ window.addEventListener("load", function() {
       data: JSON.stringify(body),
       contentType: "application/json",
       success: function(data) {
-        console.log("Succesfully posted in Qualtrics");
+        // console.log("Succesfully posted in survey db");
       },
       complete: function(jqXHR, textStatus) {
-        console.log("Complete");
+        // console.log("Complete");
         alert(
           "Your response has been saved! \n Thanks for your participation!"
         );
@@ -194,7 +198,7 @@ window.addEventListener("load", function() {
       data: JSON.stringify(bodyTest),
       contentType: "application/json",
       success: function(data) {
-        console.log("Successfully merged and uploaded: " + data);
+        // console.log("Successfully merged and uploaded: " + data);
         refreshCanvas(data.imageBuffer.data);
         takeSelfieEnabled = false; // Disables camera shutter clicks while processing
         $("#capture").val("Retake");
@@ -206,10 +210,10 @@ window.addEventListener("load", function() {
         $("#capture").css("visibility", "visible");
       },
       complete: function(data) {
-        console.log("Complete");
+        // console.log("Complete");
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        console.log("Error: " + JSON.stringify(jqXHR.responseJSON));
+        // console.log("Error: " + JSON.stringify(jqXHR.responseJSON));
       }
     });
   }
@@ -243,11 +247,12 @@ window.addEventListener("load", function() {
               return max;
             }
             var maxConf = getMax(arr, "Confidence");
-            console.log(maxConf.Type + " - " + maxConf.Confidence); //E.g.: "Happy - 0.874302"
+            // console.log(maxConf.Type + " - " + maxConf.Confidence); //E.g.: "Happy - 0.874302"
             faceAnalysis = data.FaceDetails[i];
           // }
 
           var starsPath = "../static/resources/star0.png"; // starts with no stars
+          emotion = maxConf.Type.toLowerCase();
           switch (maxConf.Type) {
             case "ANGRY":
               finalRating = 1;
@@ -282,18 +287,19 @@ window.addEventListener("load", function() {
               starsPath = "../static/resources/star5.png"; // starts with no stars
           }
           //E.g.: "Final Estimated Rating for face number 1: 5 stars"
-          console.log(
-            "Final Estimated Rating for face number " +
-              i +
-              ":  " +
-              finalRating +
-              " stars"
-          );
+          // console.log(
+          //   "Final Estimated Rating for face number " +
+          //     i +
+          //     ":  " +
+          //     finalRating +
+          //     " stars"
+          // );
 
           document.getElementById("faceresulttext").innerHTML =
-            "You look " +
-            maxConf.Type.toLowerCase() +
-            ". <br> Rating: " +
+            // "You look " +
+            // maxConf.Type.toLowerCase() +
+            // ". <br> Rating: " +
+            "Rating: " +
             finalRating +
             " star(s)" +
             "<br>" +

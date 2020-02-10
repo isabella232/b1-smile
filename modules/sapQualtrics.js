@@ -45,7 +45,7 @@ function FillSurvey(surveyData, callback) {
       SessID_CED6t672nk: surveyData.sessionID,
       QID1: surveyData.question1,
       QID2_TEXT: surveyData.question2,
-      Age_CEDe4s6hq7: [String(surveyData.age)],
+      Age_CED3xr977x: surveyData.age,
       Gender_CEDjhthsdn: [surveyData.gender],
       Eyegla_CED0k3z2q8: [surveyData.eyeglasses],
       EyesOp_CEDxwjpth4: [surveyData.eyesOpen],
@@ -53,7 +53,8 @@ function FillSurvey(surveyData, callback) {
       Mustac_CED359e9s4: [surveyData.mustache],
       Smile_CEDo6lw72w: [surveyData.smile],
       Sungla_CED208nwbb: [surveyData.sunglasses],
-      Beard_CEDgucai3u: [surveyData.beard]
+      Beard_CEDgucai3u: [surveyData.beard],
+      Emotio_CEDol7vonu: [surveyData.emotion]
     }
   };
 
