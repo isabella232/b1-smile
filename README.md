@@ -21,7 +21,7 @@ From the root directory, using the [Cloud Foundry CLI](https://docs.cloudfoundry
 $ cf push
 ```
 
-It requires the Qualtrics Tenant, Qualtrics API Survey ID and API Token so you can get progamatic access to the required resources. 
+It requires the Qualtrics Tenant, Qualtrics API Survey ID and API Token so you can get programmatic access to the required resources.
 
 The Qualtrics tenant is part of the URL of the tenant your Qualtrics Survey. 
 Suppose the URL for your tenant is https://sapinsights.eu.qualtrics.com/ then you need to set the value "sapinsights.eu" to your ***QUALTRICS_TENANT*** variable;
