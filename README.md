@@ -37,7 +37,7 @@ Check the instructions on [this post](https://medium.com/@prasadjay/amazon-cogni
 Then you finally configure your app as an app client into your user pool. Follow the instructions on this [Amazon Cognito Developer Guide](https://docs.aws.amazon.com/pt_br/cognito/latest/developerguide/user-pool-settings-client-apps.html) to do so.
 
 The AWS s3 is used to temporarly store the picture so the user can download and save it. 
-[Create a new bucket] (https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#create-bucket-intro) on aws s3 and note the bucket name.
+[Create a new bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#create-bucket-intro) on aws s3 and note the bucket name.
 
 Now you have all the AWS and Qualtrics information required, set them to the Cloud Foundry environments:
 
