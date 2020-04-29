@@ -1,8 +1,8 @@
 # Smile Survey - Face recognition and Qualtrics APIs
-[![XO](https://youtu.be/XxXVHi6-gsw)](https://youtu.be/XxXVHi6-gsw)
-
 This application feeds a Qualtrics survey with the user's rating given a selfie analysed by the Amazon Rekognition API. 
 It also merges the selfie with stickers (other smaller pictures) in case user wants to save it and share to social network.
+
+[![Watch the video](https://i.imgur.com/IbODvMZ.gif)](https://youtu.be/XxXVHi6-gsw)]
 
 ### Overview
 - It is coded in [NodeJs](https://nodejs.org/en/)
