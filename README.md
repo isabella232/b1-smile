@@ -38,19 +38,6 @@ The AWS s3 is used to temporarly store the picture so the user can download and 
 
 Now you have all the AWS and Qualtrics information required, set them to the Cloud Foundry environments:
 
-AWS_ACCESS_KEY: DGASD8GJ4KGSDKSDF3SW
-AWS_BUCKET: smilebucket
-AWS_CLIENTID: 3s6qq7asdfg21k95t2z1tv5ou4
-AWS_PASSWORD: MyPassword
-AWS_POOLID: eu-west-1:1v2v3h44-5678-9h10-1wd2-1234567aa123
-AWS_REGION: eu-west-1
-AWS_SECRET_KEY: tABCcDEF1abcdEfGhIJK/12a$bc3ddEFgHiJKL/m
-AWS_USERNAME: thecastro
-AWS_USERPOOLID: eu-west-1_ABCdE1G2I
-QUALTRICS_SURVEYID: SV_cPdRNZGwsIudugh
-QUALTRICS_TENANT: sapinsights.eu
-QUALTRICS_TOKEN: H0Ce5sn8ejjgFZL7yprCDvyfF7l2puOrA6Lm0D9Y
-
 ```sh
 $ cf set-env <appname> AWS_ACCESS_KEY <your_aws_access_key>
 $ cf set-env <appname> AWS_CLIENTID <your_aws_client_id>
@@ -83,6 +70,7 @@ $ cf env <appname>
 ```
 
 You should get a list like this:
+```sh
 User-Provided:
 AWS_ACCESS_KEY: ABCDE1FG2HIJKLMNOP3QR
 AWS_BUCKET: smilebucket
@@ -96,6 +84,7 @@ AWS_USERPOOLID: eu-west-1_ABCdE1G2I
 QUALTRICS_SURVEYID: SV_cPdRNZGwsIudugh
 QUALTRICS_TENANT: sapinsights.eu
 QUALTRICS_TOKEN: H0Ce5sn8ejjgFZL7yprCDvyfF7l2puOrA6Lm0D9Y
+```
 
 # Demo app
 There is a sample implementation [running here](https://smiletcm-happy-buffalo.cfapps.eu10.hana.ondemand.com/).
