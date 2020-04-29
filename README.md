@@ -2,7 +2,7 @@
 Analyses selfies and post results to survey
 
 # Smile Survey - Face recognition and Qualtrics APIs
-[![SAP](https://i.imgur.com/HBBBde7.png)](https://api.qualtrics.com/)
+[![XO](https://blogs.sap.com/wp-content/uploads/2020/03/loop_experience.jpg)](https://api.qualtrics.com/)
 
 This application feeds a Qualtrics survey with the user's rating given a selfie analyzed by the Amazon Rekognition API. It also merge the selfie with stickers (other smaller pictures) in case user wants to save it and share to social network.
 
