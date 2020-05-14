@@ -7,6 +7,11 @@ It also merges the selfie with stickers (other smaller pictures) in case user wa
   </a>
 </p>
 
+### Prerequisites
+A free trial account on SAP Cloud Platform with Cloud Foundry Trial initialized;
+The Cloud Foundry Command Line Interface (CLI) on your machine;
+A Qualtrics Survey with API access
+
 ### Overview
 - It is coded in [NodeJs](https://nodejs.org/en/)
 - Can be deployed anywhere and I suggest to do it in the [SAP Cloud Platform](https://cloudplatform.sap.com). 
