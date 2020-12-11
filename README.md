@@ -1,4 +1,9 @@
+[![License: Apache2](https://img.shields.io/badge/License-Apache2-green.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # Smile Survey - Face recognition and Qualtrics APIs
+[Read full blog post here](https://blogs.sap.com/2020/02/27/theres-more-than-a-smile-in-your-face)
+
+# Description
 This application feeds a Qualtrics survey with the user's rating given a selfie analysed by the Amazon Rekognition API. 
 It also merges the selfie with stickers (other smaller pictures) in case user wants to save it and share to social network.
 <p align="center">
@@ -7,17 +12,18 @@ It also merges the selfie with stickers (other smaller pictures) in case user wa
   </a>
 </p>
 
-### Prerequisites
-- A free trial account on SAP Cloud Platform with Cloud Foundry Trial initialized;
-- The Cloud Foundry Command Line Interface (CLI) on your machine;
-- A Qualtrics Survey with API access
+## Requirements
+* A free trial account on SAP Cloud Platform with Cloud Foundry Trial initialized;
+* The Cloud Foundry Command Line Interface (CLI) on your machine;
+* A Qualtrics Survey with API access
 
-### Overview
-- It is coded in [NodeJs](https://nodejs.org/en/)
-- Can be deployed anywhere and I suggest to do it in the [SAP Cloud Platform](https://cloudplatform.sap.com). 
-- It makes use of the [Amazon Rekognition](https://aws.amazon.com/es/rekognition/), [Qualtrics APIs](https://api.qualtrics.com/) and [Sharp library (NodeJs)](https://github.com/lovell/sharp)
+## Notes
+* There is a sample implementation [running here](https://smiletcm-happy-buffalo.cfapps.eu10.hana.ondemand.com/)
+* It is coded in [NodeJs](https://nodejs.org/en/)
+* Can be deployed anywhere and I suggest to do it in the [SAP Cloud Platform](https://cloudplatform.sap.com). 
+* It makes use of the [Amazon Rekognition](https://aws.amazon.com/es/rekognition/), [Qualtrics APIs](https://api.qualtrics.com/) and [Sharp library (NodeJs)](https://github.com/lovell/sharp)
 
-### Deployment to the Cloud Foundry
+## Deployment
 Clone this repository
 ```sh
 $ git clone https://github.com/mendesthi/smilesurvey.git
@@ -94,8 +100,9 @@ QUALTRICS_TENANT: sapinsights.eu
 QUALTRICS_TOKEN: H0Ce5sn8ejjgFZL7yprCDvyfF7l2puOrA6Lm0D9Y
 ```
 
-# Demo app
-There is a sample implementation [running here](https://smiletcm-happy-buffalo.cfapps.eu10.hana.ondemand.com/).
+## Support and Contributions
+This repository is provided "as-is". No warranty or support is available. Feel free to open issues.
 
-# License
-smilesurvey is released under the terms of the MIT license. See [LICENSE](LICENSE) for more information or see https://opensource.org/licenses/MIT.
+## License
+Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
+
