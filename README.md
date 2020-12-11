@@ -1,4 +1,5 @@
 [![License: Apache2](https://img.shields.io/badge/License-Apache2-green.svg)](https://opensource.org/licenses/Apache-2.0)
+[![REUSE status](https://api.reuse.software/badge/github.com/sap-samples/b1-smile)](https://api.reuse.software/info/github.com/sap-samples/b1-smile)
 
 # Smile Survey - Face recognition and Qualtrics APIs
 [Read full blog post here](https://blogs.sap.com/2020/02/27/theres-more-than-a-smile-in-your-face)
