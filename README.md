@@ -14,14 +14,14 @@ It also merges the selfie with stickers (other smaller pictures) in case user wa
 </p>
 
 ## Requirements
-* A free trial account on SAP Cloud Platform with Cloud Foundry Trial initialized;
+* A free trial account on SAP Business Technology Platform with Cloud Foundry Trial initialized;
 * The Cloud Foundry Command Line Interface (CLI) on your machine;
 * A Qualtrics Survey with API access
 
 ## Notes
 * There is a sample implementation [running here](https://smiletcm-happy-buffalo.cfapps.eu10.hana.ondemand.com/)
 * It is coded in [NodeJs](https://nodejs.org/en/)
-* Can be deployed anywhere and I suggest to do it in the [SAP Cloud Platform](https://cloudplatform.sap.com). 
+* Can be deployed anywhere and I suggest to do it in the [SAP Business Technology Platform](https://www.sap.com/products/business-technology-platform.html). 
 * It makes use of the [Amazon Rekognition](https://aws.amazon.com/es/rekognition/), [Qualtrics APIs](https://api.qualtrics.com/) and [Sharp library (NodeJs)](https://github.com/lovell/sharp)
 
 ## Deployment
